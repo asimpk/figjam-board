@@ -17,7 +17,12 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <div className='h-screen w-screen'>{children}</div>
+        <div className='flex h-screen w-screen flex-col'>
+          <div className='sticky top-0 z-10 flex h-[60px] justify-items-center p-4'>
+            <p className='text-lg font-semibold'>Figjam</p>
+          </div>
+          {children}
+        </div>
       </body>
     </html>
   )
