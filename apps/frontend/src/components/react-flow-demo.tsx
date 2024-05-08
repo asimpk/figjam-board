@@ -135,7 +135,7 @@ export default function ReactFlowDemo() {
                 <button
                   key={shape.id}
                   onClick={() => setSelectedShape(shape)}
-                  className={`${shape.shapeRenderStyles} ${shape.nodeResizerStyles}  ml-2 ${colorsValues[shapeColor]}`}
+                  className={`${shape.shapeRenderStyles} ${colorsValues[shapeColor]} ml-2 h-[50px] w-[50px]`}
                 />
               )
             })}
