@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { ProviderFlow } from '@/providers/ReactFlowProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,7 +22,7 @@ export default function RootLayout({
           <div className='sticky top-0 z-10 flex h-[60px] justify-items-center p-4'>
             <p className='text-lg font-semibold'>Figjam</p>
           </div>
-          {children}
+          <ProviderFlow>{children}</ProviderFlow>
         </div>
       </body>
     </html>

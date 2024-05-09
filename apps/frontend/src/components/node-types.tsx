@@ -15,24 +15,17 @@ const RectangleNode: React.FC<NodeProps> = ({ data, selected }) => {
         }}
       />
       <div className={`${styles}`}>
-        <Handle
-          type='target'
-          position={Position.Left}
-          id={`${data.id}.left`}
-          style={{ borderRadius: 0 }}
-        />
-        <div id={data.id}>{data.label}</div>
+        <Handle type='source' position={Position.Left} id={`${data.id}.left`} />
         <Handle
           type='source'
           position={Position.Right}
-          id={`${data.id}.right1`}
-          style={{ top: '30%', borderRadius: 0 }}
+          id={`${data.id}.right`}
         />
+        <Handle type='source' position={Position.Top} id={`${data.id}.top`} />
         <Handle
           type='source'
-          position={Position.Right}
-          id={`${data.id}.right2`}
-          style={{ top: '70%', borderRadius: 0 }}
+          position={Position.Bottom}
+          id={`${data.id}.bottom`}
         />
       </div>
     </>
@@ -53,24 +46,18 @@ const RhombusNode: React.FC<NodeProps> = ({ data, selected }) => {
         }}
       />
       <div className={`${styles}`}>
-        <Handle
-          type='target'
-          position={Position.Left}
-          id={`${data.id}.left`}
-          style={{ borderRadius: 0 }}
-        />
+        <Handle type='target' position={Position.Left} id={`${data.id}.left`} />
         <div id={data.id}>{data.label}</div>
         <Handle
           type='source'
           position={Position.Right}
-          id={`${data.id}.right1`}
-          style={{ top: '30%', borderRadius: 0 }}
+          id={`${data.id}.right`}
         />
+        <Handle type='source' position={Position.Top} id={`${data.id}.top`} />
         <Handle
           type='source'
-          position={Position.Right}
-          id={`${data.id}.right2`}
-          style={{ top: '70%', borderRadius: 0 }}
+          position={Position.Bottom}
+          id={`${data.id}.bottom`}
         />
       </div>
     </>
@@ -91,24 +78,18 @@ const ChevronNode: React.FC<NodeProps> = ({ data, selected }) => {
         }}
       />
       <div className={`${styles}`}>
-        <Handle
-          type='target'
-          position={Position.Left}
-          id={`${data.id}.left`}
-          style={{ borderRadius: 0 }}
-        />
+        <Handle type='target' position={Position.Left} id={`${data.id}.left`} />
         <div id={data.id}>{data.label}</div>
         <Handle
           type='source'
           position={Position.Right}
-          id={`${data.id}.right1`}
-          style={{ top: '30%', borderRadius: 0 }}
+          id={`${data.id}.right`}
         />
+        <Handle type='source' position={Position.Top} id={`${data.id}.top`} />
         <Handle
           type='source'
-          position={Position.Right}
-          id={`${data.id}.right2`}
-          style={{ top: '70%', borderRadius: 0 }}
+          position={Position.Bottom}
+          id={`${data.id}.bottom`}
         />
       </div>
     </>
@@ -128,24 +109,18 @@ const CircleNode: React.FC<NodeProps> = ({ data, selected = true }) => {
         }}
       />
       <div className={`${styles}`}>
-        <Handle
-          type='target'
-          position={Position.Left}
-          id={`${data.id}.left`}
-          style={{ borderRadius: '0' }}
-        />
+        <Handle type='target' position={Position.Left} id={`${data.id}.left`} />
         <div id={data.id}>{data.label}</div>
         <Handle
           type='source'
           position={Position.Right}
-          id={`${data.id}.right1`}
-          style={{ top: '30%', borderRadius: 0 }}
+          id={`${data.id}.right`}
         />
+        <Handle type='source' position={Position.Top} id={`${data.id}.top`} />
         <Handle
           type='source'
-          position={Position.Right}
-          id={`${data.id}.right2`}
-          style={{ top: '70%', borderRadius: 0 }}
+          position={Position.Bottom}
+          id={`${data.id}.bottom`}
         />
       </div>
     </>
@@ -165,26 +140,24 @@ const TriangleNode: React.FC<NodeProps> = ({ data, selected }) => {
         }}
       />
       <div className={`${styles}`}>
-        <Handle
-          type='target'
-          position={Position.Top}
-          id={`${data.id}.top`}
-          style={{ borderRadius: 0 }}
-        />
+        <Handle type='target' position={Position.Top} id={`${data.id}.top`} />
         <div id={data.id} className='triangle-node-text'>
           {data.label}
         </div>
         <Handle
           type='source'
           position={Position.Bottom}
-          id={`${data.id}.bottom1`}
-          style={{ left: '30%', borderRadius: 0 }}
+          id={`${data.id}.bottom`}
         />
         <Handle
           type='source'
-          position={Position.Bottom}
-          id={`${data.id}.bottom2`}
-          style={{ left: '70%', borderRadius: 0 }}
+          position={Position.Left}
+          id={`${data.id}.bottom`}
+        />
+        <Handle
+          type='source'
+          position={Position.Right}
+          id={`${data.id}.right`}
         />
       </div>
     </>

@@ -9,7 +9,8 @@ import ReactFlow, {
   addEdge,
   Connection,
   Edge,
-  BackgroundVariant
+  BackgroundVariant,
+  useReactFlow
 } from 'reactflow'
 import { CirclePicker } from 'react-color'
 import 'reactflow/dist/style.css'
@@ -80,6 +81,7 @@ export default function ReactFlowDemo() {
   const [edges, setEdges, onEdgesChange] = useEdgesState([])
   const [selectedShape, setSelectedShape] = useState<(typeof shapes)[1]>()
   const [shapeColor, setShapeColor] = useState(Object.keys(colorsValues)[0])
+  const { screenToFlowPosition } = useReactFlow()
 
   const onConnect = useCallback(
     (params: Edge | Connection) => setEdges(eds => addEdge(params, eds)),
@@ -92,7 +94,7 @@ export default function ReactFlowDemo() {
         ...nodes,
         {
           id: (nodes.length + 1).toString(),
-          position: { x: e.pageX, y: e.pageY },
+          position: screenToFlowPosition({ x: e.clientX, y: e.clientY }),
           data: {
             label: '',
             bgColor: colorsValues[shapeColor],
@@ -122,8 +124,8 @@ export default function ReactFlowDemo() {
         <Controls />
         <Background variant={'dots' as BackgroundVariant} gap={12} size={1} />
 
-        <div className='absolute bottom-4 left-1/2 z-10 h-[90px] w-3/6 -translate-x-1/2 transform rounded-lg border bg-inherit p-4'>
-          <div className='flex w-full items-center justify-start'>
+        <div className='w-min-[150px] absolute bottom-4 left-1/2 z-10 h-[90px] -translate-x-1/2 transform  rounded-lg border p-4'>
+          <div className='flex w-full items-center justify-start overflow-x-auto overflow-y-hidden'>
             <CirclePicker
               width={'150px'}
               circleSpacing={8}
